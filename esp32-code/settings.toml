@@ -1,0 +1,4 @@
+CIRCUITPY_WIFI_SSID = "your-wifi-ssid"
+CIRCUITPY_WIFI_PASSWORD = "-insert-pw-here-"
+CIRCUITPY_WEB_API_PASSWORD= "web"
+TIMEZONE = "-8"
