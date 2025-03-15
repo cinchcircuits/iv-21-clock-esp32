@@ -1,0 +1,19 @@
+IV-21-pin,Board trace,max6921 pin,max6921 signal,,,Plate designations,
+plate1,G,19,out7,,,D,
+plate2,B,18,out8,,C,,B
+plate3,F,17,out9,,,A,
+plate4,A,6,out16,,H,,G
+plate5,DP,22,out4,,,F,
+plate6,D,23,out3,,,,E (This is the dot)
+plate7,C,21,out5,,,,
+plate8,E,20,out6,,,,
+,,,,,,,
+Grid1,G1,7,out15,,,,
+grid2,G2,25,out1,,,,
+grid3,G3,9,out13,,,,
+grid4,G4,24,out2,,,,
+grid5,G5,8,out14,,,,
+grid6,G6,26,out0,,,,
+grid7,G7,10,out12,,,,
+grid8,G8,11,out11,,,,
+grid9,G9,12,out10,,,,
