@@ -8,6 +8,7 @@ import wifi
 import os
 from max6921 import VFD
 import digitalio
+import supervisor
 
 i2c = board.I2C()
 mcp = cp_mcp3x21.MCP3021(i2c)
@@ -25,6 +26,7 @@ pwm.frequency = 34050
 #pwm.frequency = 1050
 pwm.duty_cycle = 0
 
+# Initial startup values. Should make for a low voltage
 freq = 4100
 #freq = 14100
 duty = 12000
@@ -37,13 +39,32 @@ if wifi_ssid is None:
     print("WiFi credentials are kept in settings.toml, please add them there!")
     raise ValueError("SSID not found in environment variables")
 
-try:
-    print("Attempting wifi connection")
-    wifi.radio.connect(wifi_ssid, wifi_password)
-except ConnectionError:
-    print("Failed to connect to WiFi with provided credentials")
-    raise
+goodwifi = 0
+while goodwifi == 0:
+    try:
+        print("Attempting wifi connection")
+        wifi.radio.connect(wifi_ssid, wifi_password)
+        goodwifi = 1
+    except ConnectionError:
+        print("Failed to connect to WiFi with provided credentials")
+        goodwifi = 0
+        time.sleep(5)
+    
+import ipaddress
+ping_ip = ipaddress.IPv4Address("10.128.128.1")  # Google.com
+ping = wifi.radio.ping(ip=ping_ip)
 
+# retry once if timed out
+if ping is None:
+    ping = wifi.radio.ping(ip=ping_ip)
+
+if ping is None:
+    print("Couldn't ping 'google.com' successfully")
+else:
+    # convert s to ms
+    print(f"Pinging 'google.com' took: {ping * 1000} ms")
+    
+print("WiFi connection Success")
 timez = os.getenv("TIMEZONE")
 timezone = int(timez)
 
@@ -55,12 +76,10 @@ print(ntp.datetime)
 load = digitalio.DigitalInOut(board.D3)
 load.direction = digitalio.Direction.OUTPUT
 digits = [(load, 15), (load, 1), (load, 13), (load, 2), (load, 14), (load, 0), (load, 12), (load, 11),(load, 10), (load, 17), (load, 18), (load, 19)]
-segments = [(load, 7), (load, 8), (load, 9), (load, 16), (load, 4), (load, 3), (load, 5), (load, 6)]
+#digits = [(load, 19), (load, 18), (load, 17), (load, 10), (load, 11), (load, 12), (load, 0), (load, 14), (load, 2), (load, 13), (load, 1), (load, 15)]
+segments = [(load, 16), (load, 8), (load, 5), (load, 3), (load, 6), (load, 9), (load, 7), (load, 4)]
 
 vfd = VFD(digits, segments)
-
-vfd.print("012")
-vfd.draw()
 
 def get_voltage(value, ref, max_value=1024):
     # Our value will be between 0 and either 1024 or 4096, depending.
@@ -76,43 +95,65 @@ def get_voltage(value, ref, max_value=1024):
     return volts
 
 #vs = 10.0
-time.sleep(5)
+time.sleep(1)
 pwm.duty_cycle = duty
 pwm.frequency = freq
-print("duty")
-print(duty)
-print("freq")
-print(freq)
 
 # start Filament F2
 filament = digitalio.DigitalInOut(board.D2)
 filament.direction = digitalio.Direction.OUTPUT
 filament.value = True
 
-while True:
-	#print(mcp.value)
-	#time.sleep(0.1)
-	pwm.duty_cycle = duty
-	#pwm.duty_cycle = 34000
-	#pwm.duty_cycle = 40000
-	lvoltage = get_voltage(mcp.value, 3.29, 1024)
-	voltage = lvoltage * 17.75
-	print(voltage)
-	if voltage < vtarget:
-		duty = duty+50
-	else:
-		duty = duty-50
-	if duty > 63900:
-		duty = 50
-	print(duty)
-	#if voltage < vtarget:
-	#	freq = freq + 50
-	#else:
-	#	freq = freq - 50
-	#print(freq)
-	#pwm.frequency = freq
-	#vfd.print("01234567")
-	vfd.print("76543210")
-	vfd.draw()
+# Used to reduce output of voltage updates
+v_updates = 10
 
+# Checks the VFS voltage. Adjust if nessary
+def check_vfd(duty, updates):
+    pwm.duty_cycle = duty
+    #pwm.duty_cycle = 34000
+    #pwm.duty_cycle = 40000
+    lvoltage = get_voltage(mcp.value, 3.29, 1024)
+    voltage = lvoltage * 17.75
+    if voltage < vtarget:
+        duty = duty+50
+    else:
+        duty = duty-50
+    if duty > 63900:
+        duty = 50
+    if updates == 1:    
+        print(voltage)
+        print(duty)
+    return duty
+
+now = ntp.datetime
+
+while True:
+    now_ms = supervisor.ticks_ms()
+    div_ms = now_ms / 10
+    div_sec = div_ms / 10
+    if ( div_ms % 4 ) == 0:
+        if v_updates >= 10:
+            rduty = check_vfd(duty, 1)
+            v_updates = 0
+        else:
+            rduty = check_vfd(duty, 0)
+            v_updates = v_updates + 1
+        duty = rduty
+    if ( div_sec % 1 ) == 0:
+        now = ntp.datetime
+        #print(ntp.datetime)
+        #print(now.tm_sec)
+    if ( div_ms % 1 ) == 0:
+        hour = now.tm_hour
+        minn = now.tm_min
+        sec = now.tm_sec
+        hr = ("%d-%d-%d   " % ( hour, minn, sec ))
+        reversed_hr = ("%c%c%c%c%c%c%c%c" % (hr[7], hr[6], hr[5], hr[4], hr[3], hr[2], hr[1], hr[0]))
+        vfd.print(reversed_hr)
+        #print(hr)
+        #print(reversed_hr) // Standard python reversing methods completly failed here. 
+        #vfd.print("76-43219")
+        #vfd.print("8888")
+        vfd.draw()
+    
 
