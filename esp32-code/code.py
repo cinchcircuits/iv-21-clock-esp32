@@ -13,6 +13,9 @@ import supervisor
 i2c = board.I2C()
 mcp = cp_mcp3x21.MCP3021(i2c)
 
+# Set to 1 to make daylight savings adjustments
+DST = 1
+
 # Filament transistor attached to pin 2
 #fpwm = pwmio.PWMOut(board.D2, variable_frequency=True)
 #fpwm.frequency = 200
@@ -29,7 +32,7 @@ pwm.duty_cycle = 0
 # Initial startup values. Should make for a low voltage
 freq = 2200
 #freq = 14100
-duty = 15000
+duty = 12000
 vtarget = 27.0 # target voltage
 
 # Get wifi AP credentials from a settings.toml file
@@ -147,7 +150,13 @@ while True:
         hour = now.tm_hour
         minn = now.tm_min
         sec = now.tm_sec
-        # Format the numbers a bit nicer
+        # alter time for DST
+        if DST == 1:
+            if now.tm_yday > 67 and now.tm_yday < 307:
+                if hour == 23:
+                    hour = 0
+                else:
+                    hour = hour + 1
         if hour < 10:
             hh = (" %d" % (hour))
         else:
@@ -163,6 +172,8 @@ while True:
         hr = ("%s %s %s   " % ( hh, mm, ss ))
         reversed_hr = ("%c%c%c%c%c%c%c%c" % (hr[7], hr[6], hr[5], hr[4], hr[3], hr[2], hr[1], hr[0]))
         vfd.print(reversed_hr)
+        #print(hr)
+        #print(reversed_hr) // Standard python reversing methods completly failed here. 
+        #vfd.print("76-43219")
+        #vfd.print("8888")
         vfd.draw()
-    
-

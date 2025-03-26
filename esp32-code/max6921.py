@@ -41,7 +41,7 @@ class VFD():
         self._spi = busio.SPI(self._clock, MOSI=self._data)
         while not self._spi.try_lock():
             pass
-        self._spi.configure(baudrate=5000000, phase=0, polarity=0, bits=8)
+        self._spi.configure(baudrate=500000, phase=0, polarity=0, bits=8)
         self._spi.unlock()
 
     def print(self, text):
