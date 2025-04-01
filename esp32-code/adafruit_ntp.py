@@ -124,7 +124,10 @@ class NTP:  # pylint:disable=too-many-instance-attributes
         """Current time from NTP server. Accessing this property causes the NTP time request,
         unless there has already been a recent request."""
         if time.monotonic_ns() > self.next_sync:
-            self._update_time_sync()
+            try:
+                self._update_time_sync()
+            except:
+                return time.localtime(current_time_s)
 
         # Calculate the current time based on the current and start monotonic times
         current_time_s = (
@@ -143,6 +146,5 @@ class NTP:  # pylint:disable=too-many-instance-attributes
             self._update_time_sync()
 
         return time.monotonic_ns() + self._monotonic_start_ns
-
 
 

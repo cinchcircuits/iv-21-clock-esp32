@@ -2,9 +2,6 @@ import board
 import cp_mcp3x21
 import time
 import pwmio
-import adafruit_ntp
-import socketpool
-import wifi
 import os
 from max6921 import VFD
 import digitalio
