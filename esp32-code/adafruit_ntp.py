@@ -127,7 +127,7 @@ class NTP:  # pylint:disable=too-many-instance-attributes
             try:
                 self._update_time_sync()
             except:
-                return time.localtime(current_time_s)
+                return 0
 
         # Calculate the current time based on the current and start monotonic times
         current_time_s = (
