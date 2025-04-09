@@ -22,5 +22,5 @@ This code is still a WIP. It doesn't do more than display some numbers.
 
 Most of the code development tims so far was just in getting the dc-2-dc circuit working correctly.
 
-This is an image from the first night that I got the tube to light up:
+This is an image of the clock running:
 ![light](images/iv-21-clockB.png)
