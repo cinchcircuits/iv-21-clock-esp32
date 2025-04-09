@@ -10,6 +10,9 @@ import supervisor
 i2c = board.I2C()
 mcp = cp_mcp3x21.MCP3021(i2c)
 
+# This code is intended to test the DC 2 DC circuit before. 
+# Ideally you verify the readings with a multimeter
+
 # Initial startup values. Should make for a low voltage
 #freq = 300
 #freq = 14100

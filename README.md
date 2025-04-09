@@ -15,6 +15,10 @@ Basic clock designed around a IV-21 FL tube
 # Design files
 Find the board files [Here](eagle-files)
 
+# Case cad files
+I made a simple case for this device in Fusion 360. 
+All files are avaliable [Here](case-cad)
+
 # Code
 The esp32 code can be found [here](esp32-code)
 
