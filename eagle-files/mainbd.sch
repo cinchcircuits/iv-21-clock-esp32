@@ -6840,6 +6840,51 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <smd name="ANODE" x="0" y="0" dx="2" dy="3" layer="1"/>
 <wire x1="-2" y1="6" x2="2" y2="6" width="0.127" layer="21"/>
 </package>
+<package name="SOIC8">
+<description>&lt;B&gt;Wide Plastic Gull Wing Small Outline Package&lt;/B&gt;</description>
+<wire x1="-2.6" y1="2.25" x2="-2.35" y2="2.5" width="0.1524" layer="21" curve="-90"/>
+<wire x1="2.35" y1="2.5" x2="2.6" y2="2.25" width="0.1524" layer="21" curve="-90"/>
+<wire x1="2.35" y1="-2.5" x2="2.6" y2="-2.25" width="0.1524" layer="21" curve="90"/>
+<wire x1="-2.6" y1="-2.25" x2="-2.35" y2="-2.5" width="0.1524" layer="21" curve="90"/>
+<wire x1="2.36" y1="-2.5" x2="-2.34" y2="-2.5" width="0.1524" layer="51"/>
+<wire x1="-2.34" y1="2.5" x2="2.36" y2="2.5" width="0.1524" layer="51"/>
+<wire x1="-2.21" y1="2.5" x2="-2.34" y2="2.5" width="0.1524" layer="21"/>
+<wire x1="-1.59" y1="2.5" x2="-0.95" y2="2.5" width="0.1524" layer="21"/>
+<wire x1="-0.32" y1="2.5" x2="0.32" y2="2.5" width="0.1524" layer="21"/>
+<wire x1="0.95" y1="2.5" x2="1.59" y2="2.5" width="0.1524" layer="21"/>
+<wire x1="2.21" y1="2.5" x2="2.36" y2="2.5" width="0.1524" layer="21"/>
+<wire x1="2.2" y1="-2.5" x2="2.33" y2="-2.5" width="0.1524" layer="21"/>
+<wire x1="1.59" y1="-2.5" x2="0.94" y2="-2.5" width="0.1524" layer="21"/>
+<wire x1="0.32" y1="-2.5" x2="-0.33" y2="-2.5" width="0.1524" layer="21"/>
+<wire x1="-0.95" y1="-2.5" x2="-1.59" y2="-2.5" width="0.1524" layer="21"/>
+<wire x1="-2.21" y1="-2.5" x2="-2.34" y2="-2.5" width="0.1524" layer="21"/>
+<wire x1="-2.6" y1="2.25" x2="-2.6" y2="-2.24" width="0.1524" layer="21"/>
+<wire x1="2.6" y1="-2.25" x2="2.6" y2="2.25" width="0.1524" layer="21"/>
+<circle x="-1.42" y="-1.115" radius="0.5" width="0.0508" layer="21"/>
+<smd name="1" x="-1.905" y="-3.2512" dx="0.5" dy="2.54" layer="1"/>
+<smd name="2" x="-0.645" y="-3.2512" dx="0.5" dy="2.54" layer="1"/>
+<smd name="3" x="0.625" y="-3.2512" dx="0.5" dy="2.54" layer="1"/>
+<smd name="4" x="1.895" y="-3.2512" dx="0.5" dy="2.54" layer="1"/>
+<smd name="8" x="-1.905" y="3.2512" dx="0.5" dy="2.54" layer="1"/>
+<smd name="7" x="-0.635" y="3.2512" dx="0.5" dy="2.54" layer="1"/>
+<smd name="6" x="0.635" y="3.2512" dx="0.5" dy="2.54" layer="1"/>
+<smd name="5" x="1.905" y="3.2512" dx="0.5" dy="2.54" layer="1"/>
+<text x="-2.8575" y="-2.159" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="4.064" y="-2.159" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<rectangle x1="-2.08" y1="2.5" x2="-1.73" y2="3.4" layer="51"/>
+<rectangle x1="-0.81" y1="2.5" x2="-0.46" y2="3.4" layer="51"/>
+<rectangle x1="0.46" y1="2.5" x2="0.81" y2="3.4" layer="51"/>
+<rectangle x1="1.73" y1="2.5" x2="2.08" y2="3.4" layer="51"/>
+<rectangle x1="1.72" y1="-3.4" x2="2.07" y2="-2.5" layer="51"/>
+<rectangle x1="0.45" y1="-3.4" x2="0.8" y2="-2.5" layer="51"/>
+<rectangle x1="-0.82" y1="-3.4" x2="-0.47" y2="-2.5" layer="51"/>
+<rectangle x1="-2.08" y1="-3.4" x2="-1.73" y2="-2.5" layer="51"/>
+</package>
+<package name="BATTERY-2998-COIN">
+<smd name="P$1" x="0" y="0" dx="3.96" dy="3.96" layer="1"/>
+<smd name="P$2" x="-4.7" y="0" dx="1.78" dy="5.08" layer="1"/>
+<smd name="P$3" x="4.7" y="0" dx="1.78" dy="5.08" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="CAP">
@@ -6923,6 +6968,30 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-2.54" y1="-2.54" x2="10.16" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="10.16" y1="-2.54" x2="10.16" y2="7.62" width="0.254" layer="94"/>
 <wire x1="10.16" y1="7.62" x2="-2.54" y2="7.62" width="0.254" layer="94"/>
+</symbol>
+<symbol name="DS3231M">
+<pin name="32KHZ" x="-10.16" y="5.08" length="middle"/>
+<pin name="VCC" x="-10.16" y="2.54" length="middle"/>
+<pin name="INT" x="-10.16" y="0" length="middle"/>
+<pin name="RST" x="-10.16" y="-2.54" length="middle"/>
+<pin name="SCL" x="-10.16" y="-5.08" length="middle"/>
+<pin name="SDA" x="-10.16" y="-7.62" length="middle"/>
+<pin name="VBAT" x="-10.16" y="-10.16" length="middle"/>
+<pin name="GND" x="-10.16" y="-12.7" length="middle"/>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-15.24" x2="10.16" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-15.24" x2="10.16" y2="7.62" width="0.254" layer="94"/>
+<wire x1="10.16" y1="7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
+</symbol>
+<symbol name="BATTERY">
+<wire x1="10.16" y1="10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<pin name="POS" x="15.24" y="2.54" length="middle" rot="R180"/>
+<pin name="NEG" x="15.24" y="-2.54" length="middle" rot="R180"/>
+<text x="5.08" y="0" size="5.08" layer="94">+</text>
+<text x="5.08" y="-5.08" size="5.08" layer="94">-</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -7048,6 +7117,44 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <connect gate="G$1" pin="GND" pad="B"/>
 <connect gate="G$1" pin="IN" pad="E"/>
 <connect gate="G$1" pin="OUT" pad="C"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="DS3231M">
+<gates>
+<gate name="G$1" symbol="DS3231M" x="2.54" y="12.7"/>
+</gates>
+<devices>
+<device name="" package="SOIC8">
+<connects>
+<connect gate="G$1" pin="32KHZ" pad="1"/>
+<connect gate="G$1" pin="GND" pad="5"/>
+<connect gate="G$1" pin="INT" pad="3"/>
+<connect gate="G$1" pin="RST" pad="4"/>
+<connect gate="G$1" pin="SCL" pad="8"/>
+<connect gate="G$1" pin="SDA" pad="7"/>
+<connect gate="G$1" pin="VBAT" pad="6"/>
+<connect gate="G$1" pin="VCC" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BATTERY-2998-COIN">
+<gates>
+<gate name="G$2" symbol="BATTERY" x="7.62" y="7.62"/>
+</gates>
+<devices>
+<device name="" package="BATTERY-2998-COIN">
+<connects>
+<connect gate="G$2" pin="NEG" pad="P$1"/>
+<connect gate="G$2" pin="POS" pad="P$2 P$3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14962,6 +15069,12 @@ Source: AVX .. aphvc.pdf</description>
 <part name="C1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
 <part name="U$9" library="mgregg" deviceset="DIODE-ZENIER-CMSH1-20MLTR13" device=""/>
 <part name="3.3V-LDO" library="mgregg" deviceset="LDO-3.3V-AZ1117CR-3.3TRG1" device=""/>
+<part name="U$3" library="mgregg" deviceset="DS3231M" device=""/>
+<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:23556/2" value="10k"/>
+<part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:23556/2" value="10k"/>
+<part name="R10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:23556/2" value="10k"/>
+<part name="U$5" library="mgregg" deviceset="BATTERY-2998-COIN" device=""/>
+<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="M0805" package3d_urn="urn:adsk.eagle:package:23556/2" value="0"/>
 </parts>
 <sheets>
 <sheet>
@@ -15074,6 +15187,24 @@ Source: AVX .. aphvc.pdf</description>
 </instance>
 <instance part="U$9" gate="G$1" x="182.88" y="-17.78" smashed="yes"/>
 <instance part="3.3V-LDO" gate="G$1" x="195.58" y="63.5" smashed="yes"/>
+<instance part="U$3" gate="G$1" x="111.76" y="-66.04" smashed="yes"/>
+<instance part="R8" gate="G$1" x="78.74" y="-60.96" smashed="yes">
+<attribute name="NAME" x="74.93" y="-59.4614" size="1.778" layer="95"/>
+<attribute name="VALUE" x="74.93" y="-64.262" size="1.778" layer="96"/>
+</instance>
+<instance part="R9" gate="G$1" x="78.74" y="-66.04" smashed="yes">
+<attribute name="NAME" x="74.93" y="-64.5414" size="1.778" layer="95"/>
+<attribute name="VALUE" x="74.93" y="-69.342" size="1.778" layer="96"/>
+</instance>
+<instance part="R10" gate="G$1" x="78.74" y="-68.58" smashed="yes">
+<attribute name="NAME" x="74.93" y="-67.0814" size="1.778" layer="95"/>
+<attribute name="VALUE" x="74.93" y="-71.882" size="1.778" layer="96"/>
+</instance>
+<instance part="U$5" gate="G$2" x="30.48" y="-60.96" smashed="yes"/>
+<instance part="R11" gate="G$1" x="53.34" y="-73.66" smashed="yes">
+<attribute name="NAME" x="49.53" y="-72.1614" size="1.778" layer="95"/>
+<attribute name="VALUE" x="49.53" y="-76.962" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -15156,6 +15287,16 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="3.3V-LDO" gate="G$1" pin="GND"/>
 <wire x1="187.96" y1="63.5" x2="170.18" y2="63.5" width="0.1524" layer="91"/>
 <label x="172.72" y="63.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="GND"/>
+<wire x1="101.6" y1="-78.74" x2="83.82" y2="-78.74" width="0.1524" layer="91"/>
+<label x="88.9" y="-78.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$2" pin="NEG"/>
+<wire x1="45.72" y1="-63.5" x2="60.96" y2="-63.5" width="0.1524" layer="91"/>
+<label x="50.8" y="-63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="5V" class="0">
@@ -15629,6 +15770,27 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="187.96" y1="66.04" x2="170.18" y2="66.04" width="0.1524" layer="91"/>
 <label x="172.72" y="66.04" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="VCC"/>
+<wire x1="101.6" y1="-63.5" x2="83.82" y2="-63.5" width="0.1524" layer="91"/>
+<label x="88.9" y="-63.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R10" gate="G$1" pin="1"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="-68.58" x2="73.66" y2="-66.04" width="0.1524" layer="91"/>
+<pinref part="R8" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="-66.04" x2="73.66" y2="-60.96" width="0.1524" layer="91"/>
+<junction x="73.66" y="-66.04"/>
+<wire x1="73.66" y1="-60.96" x2="68.58" y2="-60.96" width="0.1524" layer="91"/>
+<junction x="73.66" y="-60.96"/>
+<label x="68.58" y="-60.96" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="58.42" y1="-73.66" x2="66.04" y2="-73.66" width="0.1524" layer="91"/>
+<label x="60.96" y="-73.66" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SCL" class="0">
 <segment>
@@ -15647,6 +15809,11 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="12.7" y1="5.08" x2="0" y2="5.08" width="0.1524" layer="91"/>
 <label x="2.54" y="5.08" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="SCL"/>
+<wire x1="101.6" y1="-71.12" x2="83.82" y2="-71.12" width="0.1524" layer="91"/>
+<label x="88.9" y="-71.12" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="SDA" class="0">
 <segment>
@@ -15664,6 +15831,11 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="U$8" gate="G$1" pin="SDA"/>
 <wire x1="12.7" y1="7.62" x2="0" y2="7.62" width="0.1524" layer="91"/>
 <label x="2.54" y="7.62" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="SDA"/>
+<wire x1="101.6" y1="-73.66" x2="83.82" y2="-73.66" width="0.1524" layer="91"/>
+<label x="88.9" y="-73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -15686,6 +15858,49 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="U$8" gate="G$1" pin="ANALOG-IN"/>
 <wire x1="12.7" y1="15.24" x2="0" y2="15.24" width="0.1524" layer="91"/>
 <label x="2.54" y="15.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="RTC-BAT" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="VBAT"/>
+<wire x1="101.6" y1="-76.2" x2="83.82" y2="-76.2" width="0.1524" layer="91"/>
+<label x="88.9" y="-76.2" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$2" pin="POS"/>
+<wire x1="45.72" y1="-58.42" x2="60.96" y2="-58.42" width="0.1524" layer="91"/>
+<label x="50.8" y="-58.42" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="48.26" y1="-73.66" x2="38.1" y2="-73.66" width="0.1524" layer="91"/>
+<label x="40.64" y="-73.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="RST"/>
+<wire x1="101.6" y1="-68.58" x2="83.82" y2="-68.58" width="0.1524" layer="91"/>
+<label x="88.9" y="-68.58" size="1.778" layer="95"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<junction x="83.82" y="-68.58"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="INT"/>
+<wire x1="101.6" y1="-66.04" x2="83.82" y2="-66.04" width="0.1524" layer="91"/>
+<label x="88.9" y="-66.04" size="1.778" layer="95"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<junction x="83.82" y="-66.04"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="U$3" gate="G$1" pin="32KHZ"/>
+<wire x1="101.6" y1="-60.96" x2="83.82" y2="-60.96" width="0.1524" layer="91"/>
+<label x="88.9" y="-60.96" size="1.778" layer="95"/>
+<pinref part="R8" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
