@@ -196,16 +196,15 @@
 <vertex x="7.9" y="24.6"/>
 </polygon>
 <text x="79.9" y="25.7" size="0.8128" layer="21" rot="SR270">V</text>
-<polygon width="0.1524" layer="29">
-<vertex x="42.1" y="9"/>
-<vertex x="42.1" y="11.2"/>
-<vertex x="45.6" y="11.2"/>
-<vertex x="45.6" y="9"/>
-</polygon>
 <text x="67.5" y="26.1" size="0.8128" layer="22" rot="MR0">090919</text>
 <text x="80.7" y="1.4" size="0.8128" layer="21" rot="R180">VFDclock v2.0</text>
 <hole x="15.24" y="24.13" drill="3"/>
 <hole x="15.24" y="3.81" drill="3"/>
+<text x="22.876703125" y="18.369221875" size="1.016" layer="22" rot="MR270">BAT-DISABLE</text>
+<rectangle x1="44.90289375" y1="6.78805625" x2="47.89351875" y2="8.5721" layer="1"/>
+<rectangle x1="44.81589375" y1="6.690153125" x2="48.00226875" y2="8.6156125" layer="29"/>
+<rectangle x1="44.794440625" y1="1.3006875" x2="48.01389375" y2="2.39683125" layer="29"/>
+<rectangle x1="44.90455" y1="1.33215625" x2="47.8985375" y2="2.27095625" layer="1"/>
 </plain>
 <libraries>
 <library name="adafruit">
