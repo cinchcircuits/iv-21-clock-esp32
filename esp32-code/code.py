@@ -32,8 +32,9 @@ pwm.duty_cycle = 0
 # Initial startup values. Should make for a low voltage
 freq = 2200
 #freq = 14100
-duty = 12000
-vtarget = 27.0 # target voltage
+duty = 16000
+#vtarget = 27.0 # target voltage
+vtarget = 35.0 # target voltage
 
 # Get wifi AP credentials from a settings.toml file
 wifi_ssid = os.getenv("CIRCUITPY_WIFI_SSID")
@@ -48,6 +49,7 @@ while goodwifi == 0:
         print("Attempting wifi connection")
         wifi.radio.connect(wifi_ssid, wifi_password)
         goodwifi = 1
+        time.sleep(5)
     except ConnectionError:
         print("Failed to connect to WiFi with provided credentials")
         goodwifi = 0
@@ -98,7 +100,7 @@ def get_voltage(value, ref, max_value=1024):
     return volts
 
 #vs = 10.0
-time.sleep(1)
+# why? time.sleep(1)
 pwm.duty_cycle = duty
 pwm.frequency = freq
 
@@ -118,9 +120,9 @@ def check_vfd(duty, updates):
     lvoltage = get_voltage(mcp.value, 3.29, 1024)
     voltage = lvoltage * 17.75
     if voltage < vtarget:
-        duty = duty+10
+        duty = duty+4
     else:
-        duty = duty-10
+        duty = duty-4
     if duty > 63900:
         duty = 50
     if updates == 1:    
@@ -128,25 +130,27 @@ def check_vfd(duty, updates):
         print(duty)
     return duty
 
+# run the voltage check sub a few times
+print("setting VFD voltage")
+x = 0
+while x < 20:
+    rduty = check_vfd(duty, 0)
+    duty = rduty
+    time.sleep(0.1)
+    x = x + 1
+print("Complete")
+
 now = ntp.datetime
 
 while True:
     now_ms = supervisor.ticks_ms()
     div_ms = now_ms / 10
-    div_sec = div_ms / 10
-    if ( div_ms % 4 ) == 0:
-        if v_updates >= 10:
-            rduty = check_vfd(duty, 1)
-            v_updates = 0
-        else:
-            rduty = check_vfd(duty, 0)
-            v_updates = v_updates + 1
-        duty = rduty
-    if ( div_sec % 10 ) == 0:
+    #div_sec = div_ms / 10
+    if ( div_ms % 50 ) == 0:
         now = ntp.datetime
         #print(ntp.datetime)
         #print(now.tm_sec)
-    if ( div_ms % 1 ) == 0:
+    if ( div_ms % 2 ) == 0:
         hour = now.tm_hour
         minn = now.tm_min
         sec = now.tm_sec
@@ -172,8 +176,14 @@ while True:
         hr = ("%s %s %s   " % ( hh, mm, ss ))
         reversed_hr = ("%c%c%c%c%c%c%c%c" % (hr[7], hr[6], hr[5], hr[4], hr[3], hr[2], hr[1], hr[0]))
         vfd.print(reversed_hr)
-        #print(hr)
-        #print(reversed_hr) // Standard python reversing methods completly failed here. 
-        #vfd.print("76-43219")
-        #vfd.print("8888")
         vfd.draw()
+    # Check VFD voltage
+    if ( div_ms % 10 ) == 0:
+        if v_updates >= 50:
+            rduty = check_vfd(duty, 1)
+            v_updates = 0
+        else:
+            rduty = check_vfd(duty, 0)
+            v_updates = v_updates + 1
+        duty = rduty
+
